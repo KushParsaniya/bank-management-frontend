@@ -1,0 +1,53 @@
+
+.credit-request-section {
+    margin-top: 20px;
+    margin-left: 30%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    width: 40%;
+  }
+  
+  .credit-request-section:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+    background-color: #f0f0f0;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .approve-button {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .decline-button {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .approve-button:hover {
+    background-color: #449d44; /* Change color on hover */
+  }
+  
+  .decline-button:hover {
+    background-color: #c9302c; /* Change color on hover */
+  }

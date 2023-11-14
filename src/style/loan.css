@@ -1,0 +1,16 @@
+.loan-request-section {
+    margin-top: 20px;
+    margin-left: 30%;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    width: 40%;
+  }
+  
+  .loan-request-section:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+    background-color: #f0f0f0;
+  }

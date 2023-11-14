@@ -1,0 +1,86 @@
+.bank-admin-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .admin-details {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .admin-details:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+  }
+  
+  .navigation {
+    margin: 20px;
+  }
+  
+  .navigation ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navigation li {
+    margin: 0 10px;
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navigation a:hover {
+    color: #3498db; /* Change color on hover */
+  }
+
+  .cards {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .card-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 390px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-image img {
+    max-width: 100%;
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  
+  .card-animation {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .card-animation:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 10px #888888;
+  }

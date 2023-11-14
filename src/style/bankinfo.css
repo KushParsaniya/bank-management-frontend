@@ -1,0 +1,47 @@
+.bank-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 88%;
+  }
+  
+  .bank-homepage {
+    background-color: #E5D4FF;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+  
+  .bank-header {
+    margin-bottom: 20px;
+  }
+  
+  .bank-intro {
+    margin-bottom: 20px;
+  }
+  
+  .bank-features .feature {
+    background-color: #D0A2F7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .bank-features .feature:hover {
+    background-color: #8E8FFA;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
