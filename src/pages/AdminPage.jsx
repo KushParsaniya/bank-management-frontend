@@ -75,7 +75,7 @@ function BankAdminPage() {
 
 
   useEffect(() => {
-    if (localStorage.getItem("isAuthenticated") == "false" || localStorage.getItem("isAdmin") == "false") {
+    if (localStorage.getItem("isAuthenticated") == "false" || localStorage.getItem("isAdmin") == "false" || !localStorage.getItem("isAdmin") == undefined) {
       navigate("/login");
     }
     fetchData();

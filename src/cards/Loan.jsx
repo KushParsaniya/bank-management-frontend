@@ -1,5 +1,8 @@
 
 import { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const cardStyle = {
   backgroundColor: "white",
@@ -10,20 +13,54 @@ const cardStyle = {
   maxWidth: "800px"
 };
 
+const buttonStyle = {
+  backgroundColor: "#007BFF",
+  borderColor: "#007BFF",
+  color: "white",
+  marginRight: "10px",
+};
+
+
+
 const LoanCard = () => {
+  let navigate = useNavigate();
+
   // Replace with your loan information
+  function applyLoan() {
+    navigate("/account/info/loan/applyloan");
+  }
 
   const [loans,setLoans] = useState([]);
 
   useEffect(() => {
-    const data = localStorage.getItem('data');
-    const parseData = JSON.parse(data);
-    const storedLoans = parseData.loans;
+    const storedData = localStorage.getItem("data");
+    const parseData =  JSON.parse(storedData);
+    const accountId = (parseData) && parseData.accountId;
+    let api = `http://localhost:8080/account/info/loans/getLoan/${accountId}`;
+
+    fetch(api, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else if (response.status === 500) {
+          toast.error("Internal Server Error", { theme: "colored" });
+          navigate(-1);
+          throw new Error("Internal Server Error");
+        }
+      })
+      .then((res) => {
+        setLoans(res);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
     
-    if(storedLoans){
-      setLoans(storedLoans);
-      console.log(storedLoans);
-    }
   },[]);
 
   const LoanItems = () => {
@@ -50,6 +87,11 @@ const LoanCard = () => {
   return (
     <>
     {LoanItems()}
+    <div className='text-center'>
+    <Button style={buttonStyle} onClick={applyLoan}>
+          Apply For Loan
+      </Button>
+      </div>
     </>
   );
 };

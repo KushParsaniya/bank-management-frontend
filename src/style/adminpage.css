@@ -4,7 +4,7 @@
   }
   
   .admin-details {
-    background-color: #3498db;
+    background-color: #62a0c9;
     color: #fff;
     padding: 20px;
     margin-bottom: 20px;
@@ -14,7 +14,7 @@
   }
   
   .admin-details:hover {
-    transform: scale(1.05); /* Enlarge on hover */
+    transform: scale(1.02); /* Enlarge on hover */
   }
   
   .navigation {

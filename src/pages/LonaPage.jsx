@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from 'react';
+import { Button } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 
 const cardStyle = {
   backgroundColor: "white",
@@ -10,8 +12,12 @@ const cardStyle = {
   maxWidth: "800px"
 };
 
+
+
 const LoanCard = () => {
   // Replace with your loan information
+
+
 
   const [loans,setLoans] = useState([]);
 

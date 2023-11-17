@@ -23,6 +23,8 @@ import LoanRequest from './pages/Admin/LoanRequest';
 import BankNotice from './pages/BankNotice';
 import BankContact from './pages/BankContact';
 import BankAboutUs from './pages/AboutUs';
+import UserDepositePage from './pages/UserDepositeMoneyPage';
+import LoanApply from './pages/LoanApply';
 
 
 
@@ -45,9 +47,11 @@ root.render(
       <Route path='/account/info' element={<AccountInfo />} />
       <Route path='/account/info/card' element={<BankCard />} />
       <Route path='/account/info/loan' element={<LoanCard />} />
+      <Route path='/account/info/deposit' element={<UserDepositePage />} />
       <Route path='/account/info/transactionHistory' element={<TransactionHistory />} />
       <Route path="account/info/card/creditcard" element={<CreditCard />} />
       <Route path="account/info/card/debitcard" element={<DebitCard />} />
+      <Route path="account/info/loan/applyloan" element={<LoanApply />} />
       <Route path="account/info/transfermoney" element={<TransferMoney />} />
       <Route path='/admin/info' element={<BankAdminPage />} />
       <Route path='/admin/info/creditRequest' element={<CreditRequest />} />
