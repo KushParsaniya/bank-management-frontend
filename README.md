@@ -9,7 +9,7 @@ These instructions will help you set up and run the frontend application on your
 ### Prerequisites
 
 - Node.js: Make sure you have Node.js installed on your machine. You can download it from [https://nodejs.org/](https://nodejs.org/).
-- You need backend code for this which is in spring boot.You can fork it from here [https://github.com/KushParsaniya/bank-management-backend.git]
+- You need backend code(api) for this which is in spring-boot . You can fork repository from here [https://github.com/KushParsaniya/bank-management-backend.git]
 
 ### Installation
 
