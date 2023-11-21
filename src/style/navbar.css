@@ -3,3 +3,11 @@
     /* background-color: #F875AA; */
     background-color: #e74c3c;
 }
+
+#collapsible-nav-dropdown {
+    color: white;
+}
+
+.nav-link:hover{
+    transform: scale(1.02);
+}

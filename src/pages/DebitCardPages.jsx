@@ -25,7 +25,7 @@ function DebitCard() {
   const [name, setName] = useState("");
   let navigate = useNavigate();
 
-  useEffect(() => {
+  function fetchData(){
     const data = localStorage.getItem("data");
     const parseData = JSON.parse(data);
     const storedName = parseData.username;
@@ -55,6 +55,14 @@ function DebitCard() {
       .catch((e) => {
         console.error(e);
       });
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+      navigate("/login");
+      return;
+    }   
+    fetchData();
   }, []);
 
 
@@ -113,6 +121,8 @@ function DebitCard() {
         console.error(err.message);
       });
   }
+
+  
 
   return (
     <>

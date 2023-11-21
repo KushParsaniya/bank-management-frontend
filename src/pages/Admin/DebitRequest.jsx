@@ -7,7 +7,7 @@ function DebitRequest() {
   const [requests, setRequests] = useState([]);
   let navigate = useNavigate();
 
-  useEffect(() => {
+  function fetchData(){
     const api =
       "http://localhost:8080/account/info/cards/getAllDebitCardsRequests";
     fetch(api, {
@@ -34,7 +34,16 @@ function DebitRequest() {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == "false" || localStorage.getItem("isAdmin") == "false" || !localStorage.getItem("isAdmin") == undefined) {
+      navigate("/login");
+      return;
+    }
+    fetchData();
+  },[]);
+
 
   function onApprove(accountId, reqId) {
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/userdeposite.css'
@@ -6,6 +6,13 @@ import { useNavigate } from 'react-router-dom';
 
 const UserDepositPage = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+      navigate("/login");
+      return;
+    }   
+  }, []);
 
   const handleDeposit = () => {
     navigate(-1);

@@ -17,21 +17,29 @@ const cardStyle = {
 const LoanCard = () => {
   // Replace with your loan information
 
-
+  let navigate = useNavigate();
 
   const [loans,setLoans] = useState([]);
 
-  useEffect(() => {
+  function fetchData(){
     const data = localStorage.getItem('data');
     const parseData = JSON.parse(data);
-    const storedLoans = parseData.loans;
+    const storedLoans = parseData && parseData.loans;
     
     if(storedLoans){
       setLoans(storedLoans);
       console.log(storedLoans);
     }
-  },[]);
+  }
 
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+      navigate("/login");
+      return;
+    }   
+    fetchData();
+  },[]);
+  
   const LoanItems = () => {
     if (!loans.length) {
       return <h5 className='text-center'>No Active Loans</h5>

@@ -55,6 +55,7 @@ const AccountInfo = () => {
   useEffect(() => {
     if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
       navigate("/login");
+      return;
     }   
     fetchData();
   }, []);

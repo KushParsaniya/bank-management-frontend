@@ -32,7 +32,7 @@ const LoanCard = () => {
 
   const [loans,setLoans] = useState([]);
 
-  useEffect(() => {
+  function fetchData() {
     const storedData = localStorage.getItem("data");
     const parseData =  JSON.parse(storedData);
     const accountId = (parseData) && parseData.accountId;
@@ -61,7 +61,15 @@ const LoanCard = () => {
         console.error(e);
       });
     
-  },[]);
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+      navigate("/login");
+      return;
+    }   
+    fetchData();
+  }, []);
 
   const LoanItems = () => {
     if (!loans.length) {

@@ -1,5 +1,5 @@
 import { Container, Form, Button } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import '../style/TransferMoney.css';
 import { toast } from 'react-toastify';
@@ -16,6 +16,14 @@ function TransferMoney() {
   const [amount, setAmount] = useState('');
   const [receiverId,setReceiverId] = useState('');
   const [senderId,setSenderId] = useState('');
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+      navigate("/login");
+      return;
+    }   
+  
+  }, []);
 
 
     async function handleTransfer(){

@@ -1,12 +1,14 @@
 .bank-admin-page {
-    text-align: center;
+    /* text-align: center; */
     padding: 20px;
   }
   
   .admin-details {
-    background-color: #62a0c9;
+    background-color: #7752FE;
     color: #fff;
     padding: 20px;
+    width: 70%;
+    margin-left: 15%;
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -62,6 +64,7 @@
     padding: 10px;
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
+    margin-bottom: 20px;
   }
   
   .card:hover {

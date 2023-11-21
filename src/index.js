@@ -25,6 +25,7 @@ import BankContact from './pages/BankContact';
 import BankAboutUs from './pages/AboutUs';
 import UserDepositePage from './pages/UserDepositeMoneyPage';
 import LoanApply from './pages/LoanApply';
+import DepositMoney from './pages/Admin/DepositPage';
 
 
 
@@ -57,8 +58,7 @@ root.render(
       <Route path='/admin/info/creditRequest' element={<CreditRequest />} />
       <Route path='/admin/info/debitRequest' element={<DebitRequest />} />
       <Route path='/admin/info/loanRequest' element={<LoanRequest />} />
-
-
+      <Route path='/admin/info/deposit' element={<DepositMoney />} />
 
     </Routes>
   </BrowserRouter>

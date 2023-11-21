@@ -7,7 +7,7 @@ function CreditRequest() {
   const [requests, setRequests] = useState([]);
   let navigate = useNavigate();
   
-  useEffect(() => {
+  function fetchData(){
     const api =
       "http://localhost:8080/account/info/cards/getAllCreditCardsRequests";
     fetch(api, {
@@ -34,7 +34,15 @@ function CreditRequest() {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == "false" || localStorage.getItem("isAdmin") == "false" || !localStorage.getItem("isAdmin") == undefined) {
+      navigate("/login");
+      return;
+    }
+    fetchData();
+  },[]);
 
   function onApprove(accountId,reqId){
 
@@ -85,6 +93,8 @@ function CreditRequest() {
     setRequests(prevRequests => prevRequests.filter(request => request.requestId !== reqId));
 
   }
+
+  
 
   function onDecline(reqId){
     let api = `http://localhost:8080/account/info/cards/deleteRequestCreditCard/${reqId}`;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import '../style/signup.css'
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
@@ -14,6 +14,13 @@ function LoanApply() {
     const parseData = JSON.parse(storedData);
 
     const accountId = parseData && parseData.accountId;
+
+    useEffect(() => {
+        if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+          navigate("/login");
+          return;
+        }   
+      }, []);
 
     // for backend compatibility
     let URL = "http://localhost:8080/account/info/loans/applyLoan";

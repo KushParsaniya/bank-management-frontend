@@ -25,11 +25,11 @@ function CreditCard() {
   const [name, setName] = useState("");
   let navigate = useNavigate();
 
-  useEffect(() => {
+  function fetchData(){
     const data = localStorage.getItem("data");
     const parseData = JSON.parse(data);
-    const storedName = parseData.username;
-    const accountId = parseData.accountId;
+    const storedName = parseData && parseData.username;
+    const accountId = parseData && parseData.accountId;
     setName(storedName);
     let api = `http://localhost:8080/account/info/cards/getCreditCard/${accountId}`;
 
@@ -55,6 +55,14 @@ function CreditCard() {
       .catch((e) => {
         console.error(e);
       });
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+      navigate("/login");
+      return;
+    }   
+    fetchData();
   }, []);
 
   const creditCardItem = () => {

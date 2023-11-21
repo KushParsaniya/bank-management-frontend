@@ -94,11 +94,15 @@ function BankAdminPage() {
   function onLoanReq() {
     navigate("loanRequest");
   }
+
+  function onDeposit() {
+    navigate("deposit");
+  }
   return (
     <>
       <div className="bank-admin-page">
         <div className="admin-details">
-          <h1>Admin Details</h1>
+          <h2 className="text-dark">Admin Details</h2>
           <strong>Admin Name :</strong> {name}
           <br />
           <strong>Account Number :</strong> {id}
@@ -113,6 +117,21 @@ function BankAdminPage() {
       </div>
       <div className="container cards">
         <div className="card-row">
+        <div className="card card-animation" onClick={onDeposit}>
+            <div className="card-image">
+              <img
+                //   src="https://example.com/bank-card-image.jpg"
+                // src="https://cdn.iconscout.com/icon/free/png-256/free-debit-card-16-842903.png"
+                src="data:image/png;base64,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"
+                alt="Depoist Money"
+              />
+            </div>
+            <div className="card-content">
+              <Button style={buttonStyle} onClick={onDeposit}>Debit Cards Req</Button>
+              <h3>Deposit money</h3>
+              <p>Deposit money to any account.</p>
+            </div>
+          </div>
           <div className="card card-animation" onClick={onCreditCardsReq}>
             <div className="card-image">
               <img
@@ -128,6 +147,9 @@ function BankAdminPage() {
               <p>Information aboute credit card Reqs.</p>
             </div>
           </div>
+          </div>
+        <div className="card-row">
+
           <div className="card card-animation" onClick={onDebitCardsReq}>
             <div className="card-image">
               <img

@@ -27,7 +27,9 @@ const tableStyle = {
 function TransactionHistory() {
     let [transactions, setTransactions] = useState([]);
 
-    useEffect(() => {
+    let navigate = useNavigate();
+
+    function fetchData() {
         const data = localStorage.getItem('data');
         const parseData = JSON.parse(data);
         if (parseData.transactions == null) {
@@ -39,7 +41,15 @@ function TransactionHistory() {
             setTransactions(storedTransactions);
             console.log(storedTransactions);
         }
-    }, []);
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem("isAuthenticated") == 'false' || localStorage.getItem("isAdmin") == 'true') {
+          navigate("/login");
+          return;
+        }   
+        fetchData();
+      }, []);
 
     const Sign = (s) => {
         if (s === 'DEPOSIT' || s === 'INTEREST'){
