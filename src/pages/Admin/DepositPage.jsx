@@ -19,7 +19,7 @@ function DepositMoney() {
     }
   }, []);
 
-  async function handleDeposit() {
+  function handleDeposit() {
     if (accountId < 1 || amount < 0) {
       toast.error("Please enter valid field value", { theme: "colored" });
       return;
@@ -28,7 +28,7 @@ function DepositMoney() {
 
     let api = `http://localhost:8080/account/info/deposit`;
 
-    await fetch(api, {
+    fetch(api, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -38,10 +38,12 @@ function DepositMoney() {
       .then(async (response) => {
         if (response.status === 200) {
           toast.success("successfully deposit", { theme: "colored" });
-
+          navigate(-1);
           return;
         } else if (response.status === 404) {
           toast.error("account not found", { theme: "colored" });
+          // setaccountId();
+          // setAmount();
           throw new Error("Account not found");
         } else if (response.status === 500) {
           toast.error("Internal Server Error", { theme: "colored" });

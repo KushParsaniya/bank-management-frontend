@@ -19,8 +19,9 @@ function SignUpPage() {
     let postUri = "http://localhost:8080/create";
 
     async function createAccount() {
-        if (username < 1 || email < 1 || password < 1) {
-            alert("Please fill in all fields");
+       
+        if (username.length < 1 || email.length < 1 || password.length < 1 || accountType.length < 1 ||  accountType === "SELECT TYPE") {
+            toast.error("Please fill in all fields",{theme:"colored"});
             return;
         }
         let item = { username, email, password, accountType };

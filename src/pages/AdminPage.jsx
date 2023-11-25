@@ -127,7 +127,7 @@ function BankAdminPage() {
               />
             </div>
             <div className="card-content">
-              <Button style={buttonStyle} onClick={onDeposit}>Debit Cards Req</Button>
+              <Button style={buttonStyle} onClick={onDeposit}>Deposit money</Button>
               <h3>Deposit money</h3>
               <p>Deposit money to any account.</p>
             </div>
