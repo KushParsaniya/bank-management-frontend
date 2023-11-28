@@ -16,7 +16,7 @@ function SignUpPage() {
     const [accountType, setaccountType] = useState("");
 
     // for backend compatibility
-    let postUri = "http://localhost:8080/create";
+    let postUri = "https://bank-management-backend-production.up.railway.app/create";
 
     async function createAccount() {
        
@@ -32,9 +32,10 @@ function SignUpPage() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Accept: "application/json",
+                // "Accept" : "application/json",
             },
             body: JSON.stringify(item),
+            // mode: 'no-cors'
         })
         .then(async (response) => {
             if (response.status === 200) {

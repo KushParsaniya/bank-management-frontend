@@ -29,11 +29,12 @@ const AccountInfo = () => {
 
     const storedSender = await parseData && parseData.accountId;
     console.log(storedSender);
-    let api = await `http://localhost:8080/account/info/getByAccountId/${storedSender}`;
+    let api = await `https://bank-management-backend-production.up.railway.app/account/info/getByAccountId/${storedSender}`;
       await fetch(api, {
         method: "GET",
         headers: {
           // "Content-Type": "application/json",
+          "Authorization":localStorage.getItem("Authorization"),
           "Accept": "*/*",
         },
       }).then(async (response) => {

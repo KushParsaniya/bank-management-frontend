@@ -19,18 +19,31 @@ function DepositMoney() {
     }
   }, []);
 
-  function handleDeposit() {
+  async function handleDeposit() {
     if (accountId < 1 || amount < 0) {
       toast.error("Please enter valid field value", { theme: "colored" });
       return;
     }
+
+    const parseData = localStorage.getItem("data");
+    const myAccountId = parseData && parseData.accountId;
+
+    console.log(myAccountId);
+
+    if (accountId == myAccountId) {
+      toast.error("You cannot deposite to your own account.", { theme: "colored" });
+      setaccountId("");
+      return;
+    }
     let item = { accountId, amount };
 
-    let api = `http://localhost:8080/account/info/deposit`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/deposit`;
 
-    fetch(api, {
+    await fetch(api, {
       method: "PUT",
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
+
         "Content-Type": "application/json",
       },
       body: JSON.stringify(item),

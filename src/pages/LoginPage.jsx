@@ -2,15 +2,14 @@ import { useState } from "react";
 import "../style/loginpage.css";
 import { useNavigate , useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import axios from "axios";
 
 function LoginPage() {
   localStorage.clear();
   localStorage.setItem("isAuthenticated", false);
   localStorage.setItem("isAdmin", false);
   
-
-  let api = "http://localhost:8080/login";
+  let api = "https://bank-management-backend-production.up.railway.app/login";
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -24,17 +23,32 @@ function LoginPage() {
     let item = { email, password };
 
     console.warn(item);
-
+    const stringToEncode = `${email}:${password}`;
+    const base64Encode =  btoa(stringToEncode);
+    const authHeader = 'Basic ' + base64Encode;
+    localStorage.setItem('Authorization', authHeader);
     let result;
+    
 
     await fetch(api, {
       method: "POST",
       headers: {
+        'Authorization' : authHeader ,
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        // "Accept": "application/json",
       },
       body: JSON.stringify(item),
+      // mode: 'no-cors'
+      // mode: 'opaque'
     })
+    // axios.post(api,{
+    //   headers: {
+    //     'Authorization' : authHeader ,
+        // "Content-Type": "application/json",
+    //   },
+    //   body : JSON.stringify(item)
+      
+    // })
       .then(async (response) => {
         if (response.status === 200) {
           // console.log("hello")

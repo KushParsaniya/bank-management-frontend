@@ -36,11 +36,12 @@ const LoanCard = () => {
     const storedData = localStorage.getItem("data");
     const parseData =  JSON.parse(storedData);
     const accountId = (parseData) && parseData.accountId;
-    let api = `http://localhost:8080/account/info/loans/getLoan/${accountId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/loans/getLoan/${accountId}`;
 
     fetch(api, {
       method: "GET",
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
         "Content-Type": "application/json",
         Accept: "application/json",
       },

@@ -13,10 +13,12 @@ function LoanRequest() {
 
   function fetchData(){
     const api =
-      "http://localhost:8080/account/info/loans/getAllLoanRequests";
+      "https://bank-management-backend-production.up.railway.app/account/info/loans/getAllLoanRequests";
     fetch(api, {
       headers: {
         // "Content-Type": "application/json",
+        "Authorization":localStorage.getItem("Authorization"),
+
         Accept: "application/json",
       },
     })
@@ -51,11 +53,13 @@ function LoanRequest() {
 
   function onApprove(reqId) {
 
-    let api = `http://localhost:8080/account/info/loans/createLoan/${reqId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/loans/createLoan/${reqId}`;
 
     fetch(api, {
       method: 'GET',
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
+
         // "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -73,10 +77,11 @@ function LoanRequest() {
         }
       }).catch((e) => { console.error(e) })
       .then(() => {
-        let api2 = `http://localhost:8080/account/info/loans/deleteLoanRequest/${reqId}`;
+        let api2 = `https://bank-management-backend-production.up.railway.app/account/info/loans/deleteLoanRequest/${reqId}`;
         fetch(api2, {
           method: "DELETE",
           headers: {
+            "Authorization":localStorage.getItem("Authorization"),
             // "Content-Type": "application/json",
             Accept: "application/json",
           },
@@ -100,11 +105,12 @@ function LoanRequest() {
   }
 
   function onDecline(reqId) {
-    let api = `http://localhost:8080/account/info/loans/deleteLoanRequest/${reqId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/loans/deleteLoanRequest/${reqId}`;
 
     fetch(api, {
       method: "DELETE",
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
         // "Content-Type": "application/json",
         Accept: "application/json",
       },

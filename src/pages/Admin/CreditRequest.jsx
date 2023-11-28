@@ -9,10 +9,12 @@ function CreditRequest() {
   
   function fetchData(){
     const api =
-      "http://localhost:8080/account/info/cards/getAllCreditCardsRequests";
+      "https://bank-management-backend-production.up.railway.app/account/info/cards/getAllCreditCardsRequests";
     fetch(api, {
       headers: {
-        // "Content-Type": "application/json",
+        "Authorization":localStorage.getItem("Authorization"),
+        "Content-Type": "application/json",
+
         Accept: "application/json",
       },
     })
@@ -46,11 +48,12 @@ function CreditRequest() {
 
   function onApprove(accountId,reqId){
 
-    let api = `http://localhost:8080/account/info/cards/createCreditCard/${accountId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/createCreditCard/${accountId}`;
 
     fetch(api,{
       method: 'GET',
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
         // "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -68,10 +71,12 @@ function CreditRequest() {
       }
     }).catch((e) => {console.error(e)})   
     .then(()=>{
-      let api2 = `http://localhost:8080/account/info/cards/deleteRequestCreditCard/${reqId}`;
+      let api2 = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestCreditCard/${reqId}`;
       fetch(api2,{
         method: "DELETE",
         headers: {
+          "Authorization":localStorage.getItem("Authorization"),
+
           // "Content-Type": "application/json",
           Accept: "application/json",
         },
@@ -97,11 +102,12 @@ function CreditRequest() {
   
 
   function onDecline(reqId){
-    let api = `http://localhost:8080/account/info/cards/deleteRequestCreditCard/${reqId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestCreditCard/${reqId}`;
 
     fetch(api,{
       method: "DELETE",
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
         // "Content-Type": "application/json",
         Accept: "application/json",
       },

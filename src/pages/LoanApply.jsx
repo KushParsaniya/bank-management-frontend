@@ -23,7 +23,7 @@ function LoanApply() {
       }, []);
 
     // for backend compatibility
-    let URL = "http://localhost:8080/account/info/loans/applyLoan";
+    let URL = "https://bank-management-backend-production.up.railway.app/account/info/loans/applyLoan";
 
     async function createAccount() {
         if (loanType.length < 1 || loanAmount < 1 || accountId < 1) {
@@ -37,6 +37,7 @@ function LoanApply() {
         await fetch(URL, {
             method: "POST",
             headers: {
+                "Authorization":localStorage.getItem("Authorization"),
                 "Content-Type": "application/json",
                 "Accept": "application/json",
             },

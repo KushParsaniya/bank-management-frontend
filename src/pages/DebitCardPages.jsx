@@ -31,11 +31,13 @@ function DebitCard() {
     const storedName = parseData.username;
     const accountId = parseData.accountId;
     setName(storedName);
-    let api = `http://localhost:8080/account/info/cards/getDebitCard/${accountId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/getDebitCard/${accountId}`;
 
     fetch(api, {
       method: "GET",
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
+
         "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -67,7 +69,7 @@ function DebitCard() {
 
 
   const debitCardItem = () => {
-    if (!cards.length) {
+    if (cards == undefined || !cards.length) {
       return <h5 className="text-center">No Cards Found</h5>;
     }
     const listItems = [];
@@ -95,12 +97,14 @@ function DebitCard() {
     const accountId = (await parseData) && parseData.accountId;
 
     let api =
-      await `http://localhost:8080/account/info/cards/requestDebitCard/${accountId}`;
+      await `https://bank-management-backend-production.up.railway.app/account/info/cards/requestDebitCard/${accountId}`;
 
     await fetch(api, {
       method: "GET",
       headers: {
         // "Content-Type" : "application/json",
+        "Authorization":localStorage.getItem("Authorization"),
+
         Accept: "application/json",
       },
     })

@@ -9,10 +9,11 @@ function DebitRequest() {
 
   function fetchData(){
     const api =
-      "http://localhost:8080/account/info/cards/getAllDebitCardsRequests";
+      "https://bank-management-backend-production.up.railway.app/account/info/cards/getAllDebitCardsRequests";
     fetch(api, {
       headers: {
         // "Content-Type": "application/json",
+        "Authorization":localStorage.getItem("Authorization"),
         Accept: "application/json",
       },
     })
@@ -47,11 +48,13 @@ function DebitRequest() {
 
   function onApprove(accountId, reqId) {
 
-    let api = `http://localhost:8080/account/info/cards/createDebitCard/${accountId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/createDebitCard/${accountId}`;
 
     fetch(api, {
       method: 'GET',
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
+
         // "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -69,10 +72,12 @@ function DebitRequest() {
         }
       }).catch((e) => { console.error(e) })
       .then(() => {
-        let api2 = `http://localhost:8080/account/info/cards/deleteRequestDebitCard/${reqId}`;
+        let api2 = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestDebitCard/${reqId}`;
         fetch(api2, {
           method: "DELETE",
           headers: {
+            "Authorization":localStorage.getItem("Authorization"),
+
             // "Content-Type": "application/json",
             Accept: "application/json",
           },
@@ -96,11 +101,13 @@ function DebitRequest() {
   }
 
   function onDecline(reqId) {
-    let api = `http://localhost:8080/account/info/cards/deleteRequestDebitCard/${reqId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestDebitCard/${reqId}`;
 
     fetch(api, {
       method: "DELETE",
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
+
         // "Content-Type": "application/json",
         Accept: "application/json",
       },

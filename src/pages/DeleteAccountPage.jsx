@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 
 function DeleteAccount() {
-    let api = "http://localhost:8080/delete";
+    let api = "https://bank-management-backend-production.up.railway.app/delete";
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");

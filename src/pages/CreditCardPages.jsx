@@ -31,11 +31,12 @@ function CreditCard() {
     const storedName = parseData && parseData.username;
     const accountId = parseData && parseData.accountId;
     setName(storedName);
-    let api = `http://localhost:8080/account/info/cards/getCreditCard/${accountId}`;
+    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/getCreditCard/${accountId}`;
 
     fetch(api, {
       method: "GET",
       headers: {
+        "Authorization":localStorage.getItem("Authorization"),
         "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -95,12 +96,13 @@ function CreditCard() {
     const parseData = await JSON.parse(storedData);
     const accountId = await parseData && parseData.accountId;
 
-    let api = await `http://localhost:8080/account/info/cards/requestCreditCard/${accountId}`;
+    let api = await `https://bank-management-backend-production.up.railway.app/account/info/cards/requestCreditCard/${accountId}`;
 
 
     await fetch(api,{
       method : "GET",
       headers : {
+        "Authorization":localStorage.getItem("Authorization"),
         // "Content-Type" : "application/json",
         "Accept" : "application/json"
       },
