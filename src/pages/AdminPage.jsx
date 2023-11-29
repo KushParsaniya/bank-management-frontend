@@ -33,7 +33,7 @@ function BankAdminPage() {
 
     const storedSender = await parseData && parseData.accountId;
     console.log(storedSender);
-    let api = await `https://bank-management-backend-production.up.railway.app/account/info/getByAccountId/${storedSender}`;
+    let api = await `https://${URL}/account/info/getByAccountId/${storedSender}`;
     await fetch(api, {
       method: "GET",
       headers: {

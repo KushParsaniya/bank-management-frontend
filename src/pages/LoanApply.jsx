@@ -23,7 +23,7 @@ function LoanApply() {
       }, []);
 
     // for backend compatibility
-    let URL = "https://bank-management-backend-production.up.railway.app/account/info/loans/applyLoan";
+    let URL = `https://${URL}/account/info/loans/applyLoan`;
 
     async function createAccount() {
         if (loanType.length < 1 || loanAmount < 1 || accountId < 1) {

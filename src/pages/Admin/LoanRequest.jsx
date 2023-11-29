@@ -13,7 +13,7 @@ function LoanRequest() {
 
   function fetchData(){
     const api =
-      "https://bank-management-backend-production.up.railway.app/account/info/loans/getAllLoanRequests";
+      `https://${URL}/account/info/loans/getAllLoanRequests`;
     fetch(api, {
       headers: {
         // "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function LoanRequest() {
 
   function onApprove(reqId) {
 
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/loans/createLoan/${reqId}`;
+    let api = `https://${URL}/account/info/loans/createLoan/${reqId}`;
 
     fetch(api, {
       method: 'GET',
@@ -77,7 +77,7 @@ function LoanRequest() {
         }
       }).catch((e) => { console.error(e) })
       .then(() => {
-        let api2 = `https://bank-management-backend-production.up.railway.app/account/info/loans/deleteLoanRequest/${reqId}`;
+        let api2 = `https://${URL}/account/info/loans/deleteLoanRequest/${reqId}`;
         fetch(api2, {
           method: "DELETE",
           headers: {
@@ -105,7 +105,7 @@ function LoanRequest() {
   }
 
   function onDecline(reqId) {
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/loans/deleteLoanRequest/${reqId}`;
+    let api = `https://${URL}/account/info/loans/deleteLoanRequest/${reqId}`;
 
     fetch(api, {
       method: "DELETE",

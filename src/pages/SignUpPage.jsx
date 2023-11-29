@@ -16,7 +16,7 @@ function SignUpPage() {
     const [accountType, setaccountType] = useState("");
 
     // for backend compatibility
-    let postUri = "https://bank-management-backend-production.up.railway.app/create";
+    let postUri = `https://${URL}/create`;
 
     async function createAccount() {
        

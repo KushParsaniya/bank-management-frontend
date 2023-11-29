@@ -9,7 +9,7 @@ function CreditRequest() {
   
   function fetchData(){
     const api =
-      "https://bank-management-backend-production.up.railway.app/account/info/cards/getAllCreditCardsRequests";
+      `https://${URL}/account/info/cards/getAllCreditCardsRequests`;
     fetch(api, {
       headers: {
         "Authorization":localStorage.getItem("Authorization"),
@@ -48,7 +48,7 @@ function CreditRequest() {
 
   function onApprove(accountId,reqId){
 
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/createCreditCard/${accountId}`;
+    let api = `https://${URL}/account/info/cards/createCreditCard/${accountId}`;
 
     fetch(api,{
       method: 'GET',
@@ -71,7 +71,7 @@ function CreditRequest() {
       }
     }).catch((e) => {console.error(e)})   
     .then(()=>{
-      let api2 = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestCreditCard/${reqId}`;
+      let api2 = `https://${URL}/account/info/cards/deleteRequestCreditCard/${reqId}`;
       fetch(api2,{
         method: "DELETE",
         headers: {
@@ -102,7 +102,7 @@ function CreditRequest() {
   
 
   function onDecline(reqId){
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestCreditCard/${reqId}`;
+    let api = `https://${URL}/account/info/cards/deleteRequestCreditCard/${reqId}`;
 
     fetch(api,{
       method: "DELETE",

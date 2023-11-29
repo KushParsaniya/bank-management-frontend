@@ -2,14 +2,14 @@ import { useState } from "react";
 import "../style/loginpage.css";
 import { useNavigate , useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import axios from "axios";
+
 
 function LoginPage() {
   localStorage.clear();
   localStorage.setItem("isAuthenticated", false);
   localStorage.setItem("isAdmin", false);
   
-  let api = "https://bank-management-backend-production.up.railway.app/login";
+  let api = `https://${URL}/login`;
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");

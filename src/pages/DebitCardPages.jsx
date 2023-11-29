@@ -31,7 +31,7 @@ function DebitCard() {
     const storedName = parseData.username;
     const accountId = parseData.accountId;
     setName(storedName);
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/getDebitCard/${accountId}`;
+    let api = `https://${URL}/account/info/cards/getDebitCard/${accountId}`;
 
     fetch(api, {
       method: "GET",
@@ -97,7 +97,7 @@ function DebitCard() {
     const accountId = (await parseData) && parseData.accountId;
 
     let api =
-      await `https://bank-management-backend-production.up.railway.app/account/info/cards/requestDebitCard/${accountId}`;
+      await `https://${URL}/account/info/cards/requestDebitCard/${accountId}`;
 
     await fetch(api, {
       method: "GET",

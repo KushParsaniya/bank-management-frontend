@@ -31,7 +31,7 @@ function CreditCard() {
     const storedName = parseData && parseData.username;
     const accountId = parseData && parseData.accountId;
     setName(storedName);
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/getCreditCard/${accountId}`;
+    let api = `https://${URL}/account/info/cards/getCreditCard/${accountId}`;
 
     fetch(api, {
       method: "GET",
@@ -96,7 +96,7 @@ function CreditCard() {
     const parseData = await JSON.parse(storedData);
     const accountId = await parseData && parseData.accountId;
 
-    let api = await `https://bank-management-backend-production.up.railway.app/account/info/cards/requestCreditCard/${accountId}`;
+    let api = await `https://${URL}/account/info/cards/requestCreditCard/${accountId}`;
 
 
     await fetch(api,{

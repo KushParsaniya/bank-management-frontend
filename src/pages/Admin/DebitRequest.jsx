@@ -9,7 +9,7 @@ function DebitRequest() {
 
   function fetchData(){
     const api =
-      "https://bank-management-backend-production.up.railway.app/account/info/cards/getAllDebitCardsRequests";
+      `https://${URL}/account/info/cards/getAllDebitCardsRequests`;
     fetch(api, {
       headers: {
         // "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function DebitRequest() {
 
   function onApprove(accountId, reqId) {
 
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/createDebitCard/${accountId}`;
+    let api = `https://${URL}/account/info/cards/createDebitCard/${accountId}`;
 
     fetch(api, {
       method: 'GET',
@@ -72,7 +72,7 @@ function DebitRequest() {
         }
       }).catch((e) => { console.error(e) })
       .then(() => {
-        let api2 = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestDebitCard/${reqId}`;
+        let api2 = `https://${URL}/account/info/cards/deleteRequestDebitCard/${reqId}`;
         fetch(api2, {
           method: "DELETE",
           headers: {
@@ -101,7 +101,7 @@ function DebitRequest() {
   }
 
   function onDecline(reqId) {
-    let api = `https://bank-management-backend-production.up.railway.app/account/info/cards/deleteRequestDebitCard/${reqId}`;
+    let api = `https://${URL}/account/info/cards/deleteRequestDebitCard/${reqId}`;
 
     fetch(api, {
       method: "DELETE",
