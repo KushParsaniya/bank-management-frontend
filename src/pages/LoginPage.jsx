@@ -33,7 +33,7 @@ function LoginPage() {
     await fetch(api, {
       method: "POST",
       headers: {
-        'Authorization' : authHeader ,
+        'Authorization' : localStorage.getItem("Authorization") ,
         "Content-Type": "application/json",
         // "Accept": "application/json",
       },
