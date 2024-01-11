@@ -16,7 +16,7 @@ function SignUpPage() {
     const [accountType, setaccountType] = useState("");
 
     // for backend compatibility
-    let postUri = `https://${URL}/create`;
+    let postUri = `https://${url}/create`;
 
     async function createAccount() {
        

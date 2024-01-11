@@ -29,7 +29,7 @@ const AccountInfo = () => {
 
     const storedSender = await parseData && parseData.accountId;
     console.log(storedSender);
-    let api = await `https://${URL}/account/info/getByAccountId/${storedSender}`;
+    let api = await `https://${url}/account/info/getByAccountId/${storedSender}`;
       await fetch(api, {
         method: "GET",
         headers: {

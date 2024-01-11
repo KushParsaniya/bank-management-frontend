@@ -9,7 +9,7 @@ function TransferMoney() {
     const storedData = localStorage.getItem('data');
   const parseData = JSON.parse(storedData);
 
-    let api = `https://${URL}/account/info/transfer`
+    let api = `https://${url}/account/info/transfer`
 
     let navigate = useNavigate();
 

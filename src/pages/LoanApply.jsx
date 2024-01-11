@@ -23,7 +23,7 @@ function LoanApply() {
       }, []);
 
     // for backend compatibility
-    let URL = `https://${URL}/account/info/loans/applyLoan`;
+    let api = `https://${url}/account/info/loans/applyLoan`;
 
     async function createAccount() {
         if (loanType.length < 1 || loanAmount < 1 || accountId < 1) {
@@ -34,7 +34,7 @@ function LoanApply() {
         let item = { accountId, loanAmount, loanType };
         console.warn(item);
 
-        await fetch(URL, {
+        await fetch(api, {
             method: "POST",
             headers: {
                 "Authorization":localStorage.getItem("Authorization"),

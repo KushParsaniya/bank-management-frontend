@@ -9,7 +9,7 @@ function LoginPage() {
   localStorage.setItem("isAuthenticated", false);
   localStorage.setItem("isAdmin", false);
   
-  let api = `https://${URL}/login`;
+  let api = `https://${url}/login`;
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");

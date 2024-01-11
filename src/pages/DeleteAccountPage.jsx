@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 
 function DeleteAccount() {
-    let api = `https://${URL}/delete`;
+    let api = `https://${url}/delete`;
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");

@@ -37,7 +37,7 @@ function DepositMoney() {
     }
     let item = { accountId, amount };
 
-    let api = `https://${URL}/account/info/deposit`;
+    let api = `https://${url}/account/info/deposit`;
 
     await fetch(api, {
       method: "PUT",
