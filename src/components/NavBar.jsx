@@ -3,12 +3,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
-import '../style/navbar.css'
+import "../style/navbar.css";
+import "animate.css"
 
 function NavBar() {
   return (
+    <div className="navdiv">
     <Navbar collapseOnSelect expand="lg" className="body-tertiary navbar-dark text-white">
-      <Container>
+      <Container className="navContainer">
         <Navbar.Brand href="/home">Easy-Bank</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -38,6 +40,7 @@ function NavBar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </div>
   );
 }
 

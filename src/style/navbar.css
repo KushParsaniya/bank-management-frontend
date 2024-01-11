@@ -1,13 +1,13 @@
 .navbar-light {
     /* background-color: #E5D4FF; */
     /* background-color: #F875AA; */
-    background-color: #e74c3c;
+    /* background-color: #e74c3c; */
+    background-color: black;
+    border-radius: 2.5rem;
+    margin: 1rem 30% 0 30%;
+    height: 2.5rem;
 }
 
 #collapsible-nav-dropdown {
     color: white;
-}
-
-.nav-link:hover{
-    transform: scale(1.02);
 }

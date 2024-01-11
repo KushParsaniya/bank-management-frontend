@@ -4,8 +4,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #e5d4ff;
-  }
-  
+  }  
   .notice-container {
     display: flex;
     justify-content: center;

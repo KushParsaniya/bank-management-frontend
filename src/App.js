@@ -1,7 +1,7 @@
 import HomePage from "./pages/HomePage";
 import "./style/App.css";
 import 'react-toastify/dist/ReactToastify.css';
-
+import "animate.css"
 
 
 

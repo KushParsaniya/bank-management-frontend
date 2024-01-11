@@ -85,7 +85,7 @@ function LoginPage() {
         }
       })
       .catch((err) => {
-        console.warn("error found");
+        console.warn("error found",err);
       });
     // result = await result.json();
   }
