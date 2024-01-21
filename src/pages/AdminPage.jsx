@@ -33,7 +33,7 @@ function BankAdminPage() {
 
     const storedSender = await parseData && parseData.accountId;
     console.log(storedSender);
-    let api = await `https://${url}/account/info/getByAccountId/${storedSender}`;
+    let api = await `https://${process.env.REACT_APP_URL}/account/info/getByAccountId/${storedSender}`;
     await fetch(api, {
       method: "GET",
       headers: {

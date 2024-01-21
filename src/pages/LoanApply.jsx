@@ -23,7 +23,7 @@ function LoanApply() {
       }, []);
 
     // for backend compatibility
-    let api = `https://${url}/account/info/loans/applyLoan`;
+    let api = `https://${process.env.REACT_APP_URL}/account/info/loans/applyLoan`;
 
     async function createAccount() {
         if (loanType.length < 1 || loanAmount < 1 || accountId < 1) {
