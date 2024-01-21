@@ -2,6 +2,8 @@
 
 This is the frontend part of the Bank Management App, which is developed using React.
 
+[https://easybankdev.vercel.app/]
+
 ## Getting Started
 
 These instructions will help you set up and run the frontend application on your local machine.
